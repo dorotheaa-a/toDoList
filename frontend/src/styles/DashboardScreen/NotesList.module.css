@@ -1,0 +1,22 @@
+.notesSection {
+  background-color: #f7f5e8;
+  width: 100%;
+  padding: 5vh 5% 3vh;
+}
+
+.sectionTitle {
+  color: #171a1f;
+  text-align: center;
+  font-family: Archivo, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: clamp(24px, 2.5vw, 32px);
+  font-weight: 400;
+  margin: 0 0 4vh;
+}
+
+.notesGrid {
+  display: flex;
+  gap: 2vw;
+  width: 90%;
+  margin: 0 auto;
+  justify-content: center;
+}

@@ -1,0 +1,72 @@
+.header {
+  background-color: #fff;
+  width: 100%;
+  padding: 0.5vh 5% 0.5vh 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 2px #171a1f1f;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  gap: 2.5vw;
+}
+
+.logo {
+  color: #000;
+  font-family:
+    Archivo,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: clamp(20px, 2vw, 28px);
+  margin: 0;
+}
+
+.navigation {
+  color: #565d6d;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: clamp(12px, 1vw, 14px);
+  line-height: 2;
+}
+
+.navList {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.5vw;
+}
+
+.navLink {
+  color: inherit;
+  text-decoration: none;
+  padding: 1vh 1.5vw;
+  display: block;
+}
+
+.userSection {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+}
+
+.notificationIcon {
+  width: clamp(20px, 1.5vw, 24px);
+  height: auto;
+}
+
+.userAvatar {
+  width: clamp(30px, 2.5vw, 36px);
+  height: clamp(30px, 2.5vw, 36px);
+  border-radius: 18px;
+  object-fit: cover;
+}

@@ -1,0 +1,68 @@
+.welcomeSection {
+  background-color: #f7f5e8;
+  width: 100%;
+  padding: 5vh 5% 3vh;
+  aspect-ratio: 16/9;
+  max-height: 70vh;
+}
+
+.bannerContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.backgroundImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  background-color: #171a1f66;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(466px, 90%);
+}
+
+.title {
+  color: #fff;
+  text-align: center;
+  font-family: Archivo, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 700;
+  line-height: 1;
+  margin: 0;
+}
+
+.date {
+  color: #fff;
+  text-align: center;
+  margin-top: 2vh;
+  font-size: clamp(18px, 2vw, 24px);
+}
+
+.newNoteButton {
+  background-color: #7a675c;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: #fff;
+  width: clamp(150px, 15vw, 191px);
+  margin-top: 3vh;
+  padding: 1vh 1.5vw;
+  font-size: clamp(14px, 1.2vw, 18px);
+  line-height: 2;
+  cursor: pointer;
+}

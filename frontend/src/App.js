@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+/*import logo from './logo.svg';
 import './App.css';
 
 function App() {
@@ -20,6 +20,15 @@ function App() {
       </header>
     </div>
   );
+}
+
+export default App;
+*/
+import React from 'react';
+import Dashboard from './components/DashboardScreen.jsx';
+
+function App() {
+  return <Dashboard />;
 }
 
 export default App;

@@ -1,0 +1,7 @@
+.dashboardScreen {
+  background-color: #f7f5e8;
+  overflow: hidden;
+  box-shadow: 0 3px 6px #120f281f;
+  width: 100%;
+  min-height: 100vh;
+}

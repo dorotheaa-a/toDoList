@@ -1,0 +1,31 @@
+.todoSection {
+  background-color: #f7f5e8;
+  padding-top: 3vh;
+  width: 100%;
+}
+
+.todoHeader {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  margin-left: 5%;
+  color: #000;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+.todoIcon {
+  width: clamp(30px, 2.5vw, 38px);
+  height: auto;
+  margin-top: 0.5vh;
+}
+
+.title {
+  font-size: clamp(24px, 2.5vw, 32px);
+  font-weight: 700;
+  margin: 0;
+}

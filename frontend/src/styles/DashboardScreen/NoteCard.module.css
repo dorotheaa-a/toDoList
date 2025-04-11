@@ -1,0 +1,57 @@
+.noteCard {
+  background-color: #a4978f;
+  width: calc(90% / 3);
+  padding: 3vh 2vw;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+.cardContent {
+  background-color: #f7f5e8;
+  padding-top: 3vh;
+}
+
+.cardTitle {
+  font-size: clamp(14px, 1.2vw, 16px);
+  font-weight: 700;
+  line-height: 2;
+  margin: 0;
+}
+
+.divider {
+  width: 100%;
+  margin-top: 0.5vh;
+  height: 1px;
+}
+
+.itemsList {
+  list-style: none;
+  padding: 2vh 1vw;
+  margin: 0;
+  font-size: clamp(12px, 1vw, 14px);
+  font-weight: 400;
+  line-height: 2;
+}
+
+.item {
+  margin-bottom: 1vh;
+}
+
+.editButton {
+  color: #7a675c;
+  background-color: #fff;
+  border: 1px solid #7a675c;
+  border-radius: 6px;
+  margin: 2vh 1vw;
+  padding: 0.5vh 3vw;
+  font-size: clamp(12px, 1vw, 14px);
+  font-weight: 400;
+  line-height: 2;
+  cursor: pointer;
+  width: calc(100% - 2vw);
+  text-align: center;
+}

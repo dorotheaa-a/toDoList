@@ -1,0 +1,136 @@
+.todoListContainer {
+  background-color: #4e3f36;
+  display: flex;
+  gap: 1vw;
+  margin-top: 1vh;
+  padding: 0 5% 2vh;
+  width: 100%;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+  z-index: 10;
+  margin: auto 0;
+  padding: 1vh 0;
+}
+
+.menuIcon,
+.filterIcon,
+.sortIcon {
+  width: clamp(20px, 1.5vw, 24px);
+  height: auto;
+}
+
+.mainContent {
+  flex: 1;
+  background-color: transparent;
+  padding: 0.5vh 0 4vh;
+}
+
+.header {
+  background-color: transparent;
+  padding: 3vh 2vw 3vh 4vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.columns {
+  display: flex;
+  gap: 6vw;
+  color: #fff;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: clamp(16px, 1.5vw, 20px);
+  font-weight: 700;
+}
+
+.columnTitle {
+  white-space: nowrap;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+  color: #fff;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: clamp(14px, 1.2vw, 16px);
+  line-height: 2;
+}
+
+.searchIcon {
+  width: clamp(20px, 1.5vw, 24px);
+  height: auto;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5vw;
+}
+
+.actionButton img {
+  width: clamp(20px, 1.5vw, 24px);
+  height: auto;
+}
+
+.todoItem {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 6vw;
+  padding: 1vh 5%;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: clamp(14px, 1.2vw, 16px);
+  font-weight: 400;
+  line-height: 2;
+}
+
+.taskName {
+  flex: 1;
+  min-width: 200px;
+}
+
+.priority {
+  padding: 0.5vh 2vw;
+  border-radius: 10px;
+  white-space: nowrap;
+  min-width: 80px;
+  text-align: center;
+}
+
+.priorityHigh {
+  color: #de3b40;
+  background-color: #fdf2f2;
+}
+
+.priorityMedium {
+  color: #efb034;
+  background-color: #fef9ee;
+}
+
+.priorityLow {
+  color: #10a642;
+  background-color: #eefdf3;
+}
+
+.moreIcon {
+  width: clamp(20px, 1.5vw, 24px);
+  height: auto;
+}
