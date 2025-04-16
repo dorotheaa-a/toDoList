@@ -1,22 +1,43 @@
 .notesSection {
   background-color: #f7f5e8;
   width: 100%;
-  padding: 5vh 5% 3vh;
+  max-width: 100vw;
+  padding: 4vh 4% 2vh;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .sectionTitle {
   color: #171a1f;
   text-align: center;
-  font-family: Archivo, -apple-system, Roboto, Helvetica, sans-serif;
-  font-size: clamp(24px, 2.5vw, 32px);
-  font-weight: 400;
-  margin: 0 0 4vh;
+  font-family: 'karaoke',sans-serif;
+  font-size: clamp(28px, 4vw, 42px); 
+  font-weight: 600;                 
+  margin: 0 0 3vh;
+  white-space: normal;
+  word-break: break-word;
 }
+
 
 .notesGrid {
   display: flex;
+  flex-wrap: wrap;
   gap: 2vw;
-  width: 90%;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 90%;
+  margin-inline: auto;
   justify-content: center;
+  box-sizing: border-box;
+  color: black;
+  overflow: hidden;
+  padding-bottom: 2vh; 
+  
+}
+
+.noteWrapper {
+  flex: 1 1 300px;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 1vh 1vw; 
+  color: black;
 }

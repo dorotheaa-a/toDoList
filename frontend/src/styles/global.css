@@ -1,0 +1,16 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #dde5b4;
+  overflow-y: auto;
+  overscroll-behavior: none;
+  font-family: 'karaoke', Inter, sans-serif;
+}
+
+@font-face {
+  font-family: 'karaoke';
+  src: url('../assets/fonts/LTKaraoke-SemiBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

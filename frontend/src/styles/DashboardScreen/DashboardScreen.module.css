@@ -1,7 +1,21 @@
 .dashboardScreen {
-  background-color: #f7f5e8;
-  overflow: hidden;
-  box-shadow: 0 3px 6px #120f281f;
+  background-color: transparent;
   width: 100%;
+  max-width: 100vw;
   min-height: 100vh;
+  overflow-x: hidden;            
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 0;                    
+  margin: 0;
 }
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;       
+}
+
+
+

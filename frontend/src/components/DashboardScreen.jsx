@@ -4,16 +4,17 @@ import Header from "./DashboardScreen/Header";
 import WelcomeBanner from "./DashboardScreen/WelcomeBanner";
 import NotesList from "./DashboardScreen/NotesList";
 import TodoSection from "./DashboardScreen/ToDoSection";
-import styles from '../styles/DashboardScreen/DashboardScreen.module.css';
-
+import styles from "../styles/DashboardScreen/DashboardScreen.module.css";
 
 const DashboardScreen = () => {
   return (
     <main className={styles.dashboardScreen}>
-      <Header />
-      <WelcomeBanner />
-      <NotesList />
-      <TodoSection />
+      <div className={styles.container}>
+        <Header />
+        <WelcomeBanner />
+        <NotesList />
+        <TodoSection />
+      </div>
     </main>
   );
 };

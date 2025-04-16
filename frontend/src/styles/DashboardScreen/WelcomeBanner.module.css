@@ -1,68 +1,72 @@
 .welcomeSection {
-  background-color: #f7f5e8;
   width: 100%;
-  padding: 5vh 5% 3vh;
-  aspect-ratio: 16/9;
-  max-height: 70vh;
-}
-
-.bannerContainer {
+  height: 60vh;
+  background-image: url("../../assets/banner.png");
+  background-size: cover;
+  background-position: center -40px; 
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
-  width: 100%;
-  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin-top: 0;
+  padding-top: 0;
 }
 
-.backgroundImage {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 
 .overlay {
-  background-color: #171a1f66;
-  position: relative;
   width: 100%;
   height: 100%;
+  /*background-color: rgba(20, 20, 20, 0.2);*/
+  background-color: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .content {
+  text-align: center;
+  padding: 3vh 5vw;
+  max-width: 700px;
+  color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: min(466px, 90%);
+  z-index: 1;
 }
 
 .title {
-  color: #fff;
-  text-align: center;
-  font-family: Archivo, -apple-system, Roboto, Helvetica, sans-serif;
   font-size: clamp(36px, 5vw, 64px);
   font-weight: 700;
+  font-family: 'karaoke',sans-serif;
   line-height: 1;
-  margin: 0;
+  margin: 0 0 0;
 }
 
 .date {
-  color: #fff;
-  text-align: center;
-  margin-top: 2vh;
   font-size: clamp(18px, 2vw, 24px);
+  margin-bottom: 3vh;
+  font-family: 'karaoke',sans-serif;
 }
 
 .newNoteButton {
-  background-color: #7a675c;
-  border: 1px solid transparent;
-  border-radius: 6px;
+  background-color: #a98467;
+  border: none;
+  border-radius: 10px;
   color: #fff;
-  width: clamp(150px, 15vw, 191px);
-  margin-top: 3vh;
-  padding: 1vh 1.5vw;
-  font-size: clamp(14px, 1.2vw, 18px);
+  width: clamp(180px, 18vw, 220px); 
+  padding: 1.2vh 2vw;               
+  font-size: clamp(17px, 1.5vw, 19px); 
+  font-family: 'karaoke',sans-serif;
   line-height: 2;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+
+.newNoteButton:hover {
+  background-color: #6c584c;
+  transform: translateY(-2px);
 }

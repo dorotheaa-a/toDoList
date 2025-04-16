@@ -23,7 +23,9 @@ const NotesList = () => {
       <h2 className={styles.sectionTitle}>Notes List</h2>
       <div className={styles.notesGrid}>
         {notes.map((note, index) => (
-          <NoteCard key={index} {...note} />
+          <div key={index} className={styles.noteWrapper}>
+            <NoteCard {...note} />
+          </div>
         ))}
       </div>
     </section>

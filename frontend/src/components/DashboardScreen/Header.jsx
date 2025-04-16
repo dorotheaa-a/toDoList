@@ -1,13 +1,16 @@
 import React from "react";
 import styles from "../../styles/DashboardScreen/Header.module.css";
-import pfp from './duck.jpg';
-import search from './search.png';
+import pfp from "../../assets/duck.jpg";
+import search from "../../assets/magnifying_glass_black.png";
+import logo from "../../assets/logo_clear.png";
 
 const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.headerContent}>
-        <h1 className={styles.logo}>Yoda</h1>
+        <a href="/" className={styles.logoButton}>
+          <img src={logo} alt="Yoda Logo" className={styles.logo} />
+        </a>
         <nav className={styles.navigation}>
           <ul className={styles.navList}>
             <li className={styles.navItem}>
@@ -30,12 +33,8 @@ const Header = () => {
         </nav>
       </div>
       <div className={styles.userSection}>
-        <button className={styles.notificationButton}>
-          <img
-            src={search}
-            alt="Search"
-            className={styles.notificationIcon}
-          />
+        <button className={styles.searchButton}>
+          <img src={search} alt="Search" className={styles.searchButton} />
         </button>
         <img src={pfp} alt="User profile" className={styles.userAvatar} />
       </div>

@@ -1,57 +1,81 @@
 .noteCard {
   background-color: #a4978f;
-  width: calc(90% / 3);
-  padding: 3vh 2vw;
-  font-family:
-    Inter,
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
+  padding: 2vh 2vw;
+  border-radius: 12px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 350px;
 }
 
 .cardContent {
-  background-color: #f7f5e8;
-  padding-top: 3vh;
+  background-color: #a4978f;
+  padding: 1.5vh 1vw;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: left;        
+  justify-content: flex-start; 
+  flex-grow: 1;
+  text-align: left;         
+  gap: 1vh;                 
+  color: white;
 }
 
 .cardTitle {
-  font-size: clamp(14px, 1.2vw, 16px);
+  font-size: clamp(20px, 1.6vw, 24px); 
   font-weight: 700;
-  line-height: 2;
+  font-family: 'karaoke',sans-serif;
   margin: 0;
+  color: white;
+  padding-bottom: 0.2vh;
 }
 
 .divider {
   width: 100%;
-  margin-top: 0.5vh;
   height: 1px;
+  background-color: #6d615a;
+  margin: 0.5vh 0;
 }
 
 .itemsList {
   list-style: none;
-  padding: 2vh 1vw;
+  padding: 0;
   margin: 0;
-  font-size: clamp(12px, 1vw, 14px);
+  font-size: clamp(16px, 1.4vw, 18px); 
   font-weight: 400;
-  line-height: 2;
+  font-family: 'karaoke',sans-serif;
+  line-height: 1.4;
 }
 
 .item {
-  margin-bottom: 1vh;
+  margin-bottom: 0.3vh;
 }
 
+
 .editButton {
-  color: #7a675c;
-  background-color: #fff;
-  border: 1px solid #7a675c;
+  margin-top: 2vh;
+  padding: 1vh 2vw;
+  font-size: clamp(16px, 1.4vw, 18px);
+  font-family: 'karaoke',sans-serif;
   border-radius: 6px;
-  margin: 2vh 1vw;
-  padding: 0.5vh 3vw;
-  font-size: clamp(12px, 1vw, 14px);
-  font-weight: 400;
-  line-height: 2;
+  border: none;
+  background-color: #fff;
+  color: #7a675c;
   cursor: pointer;
-  width: calc(100% - 2vw);
+  width: 100%;
+  max-width: 100%;
   text-align: center;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
+
+.editButton:hover {
+  background-color: #7a675c;
+  color: #fff;
+  transform: translateY(-1px); 
+}
+
