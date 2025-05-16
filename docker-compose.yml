@@ -1,42 +1,75 @@
-version: "3.8"
 services:
-  frontend:
-    build: ./frontend
+  # PostgreSQL Database
+  db:
+    image: postgres:15-alpine
+    env_file: .env  
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U noteuser -d notedb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
     ports:
-      - "3001:3001"
+      - "5432:5432"
+    # REMOVE TO MAKE DB EPHEMEREAL ↓
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
 
-  backend-django:
-    build: ./backend-django
+  # Django Backend
+  django:
+    build:
+      context: ./backend-django
+      dockerfile: Dockerfile.prod
+    env_file: .env
+    environment:
+      - DATABASE_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+      - SECRET_KEY=${DJANGO_SECRET_KEY}
+      - DEBUG=${DEBUG}
     ports:
       - "8000:8000"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
-  backend-express:
-    build: ./backend-express
+  # Express Backend
+  express:
+    build:
+      context: ./backend-express
+      dockerfile: Dockerfile.prod
+    environment:
+      - DB_HOST=db
+      - DB_USER=noteuser
+      - DB_PASSWORD=notepass
+      - DB_NAME=notedb
     ports:
       - "3000:3000"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
-  api-gateway:
-    build: ./api-gateway
+  # Golang Middleware
+  middleware:
+    build:
+      context: ./middleware
+      dockerfile: Dockerfile.prod
     ports:
       - "8080:8080"
     depends_on:
-      - backend-django
-      - backend-express
+      - django
+      - express
 
-  db:
-    image: postgres:15
-    environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: pass
-      POSTGRES_DB: mydb
+  # React Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.prod
     ports:
-      - "5432:5432"
+      - "80:80"
+    depends_on:
+      - middleware
 
-  # redis:
-  #   image: redis
-  #   ports:
-  #     - "6379:6379"
+volumes:
+  postgres_data:
