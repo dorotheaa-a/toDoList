@@ -1,0 +1,75 @@
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fcfaf4;
+  color: #46443d;
+  overflow-y: hidden;
+}
+
+.login-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.login-title {
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: #46443d;
+  margin-bottom: 1.5rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.signButton {
+  border-radius: 200px;
+  justify-items: right;
+  background: #fcfaf4;
+  padding: 0.5rem 4rem;
+  font-size: clamp(14px, 1.4vw, 16px);
+  font-family: "karaoke", sans-serif;
+  align-items: center;
+  color: #706e62;
+  border-style: solid;
+  border-color: #6c584c;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  margin-top: 0.25rem;
+}
+
+.signButton:hover {
+  color: #fcfaf4;
+  background: #706e62;
+  transform: translateY(-1px);
+}
+
+.loginButton {
+  border-radius: 200px;
+  justify-items: right;
+  padding: 0.5rem 4rem;
+  font-size: clamp(14px, 1.4vw, 16px);
+  font-family: "karaoke", sans-serif;
+  align-items: center;
+  border-style: solid;
+  border-color: #706e62;
+  color: #fcfaf4;
+  background: #706e62;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  margin-top: 0.25rem;
+}
+
+.loginButton:hover {
+  color: #706e62;
+  background: #fcfaf4;
+  transform: translateY(-1px);
+}

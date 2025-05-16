@@ -1,16 +1,14 @@
-"use client";
 import React, { useState } from "react";
 import styles from "../../styles/DashboardScreen/TodoList.module.css";
 import tick from "../../assets/tick_white.png";
 import tick_empty from "../../assets/rectangle.png";
-import divider from "../../assets/divider.png";
 import search from "../../assets/magnifying_glass_white.png";
 import filter from "../../assets/filter.png";
 import add from "../../assets/plus.png";
 import trash from "../../assets/garbage.png";
 
 const TodoList = () => {
-  const [checked, setChecked] = useState([true, false, false]);
+  const [checked, setChecked] = useState([false, false, false]);
 
   const todos = [
     {
@@ -30,6 +28,18 @@ const TodoList = () => {
       date: "2023-11-01",
       time: "11:00",
       priority: "Low",
+    },
+    {
+      task: "Meeting with client",
+      date: "2023-11-01",
+      time: "11:00",
+      priority: "High",
+    },
+    {
+      task: "Meeting with client",
+      date: "2023-11-01",
+      time: "11:00",
+      priority: "Medium",
     },
   ];
 
@@ -69,7 +79,6 @@ const TodoList = () => {
           </div>
         </div>
 
-        <img src={divider} alt="Divider" className={styles.divider} />
 
         {todos.map((todo, index) => (
           <div key={index} className={styles.todoItem}>

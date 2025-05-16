@@ -1,5 +1,5 @@
 .notesSection {
-  background-color: #f7f5e8;
+  background-color: #fcfaf4;
   width: 100%;
   max-width: 100vw;
   padding: 4vh 4% 2vh;
@@ -8,7 +8,7 @@
 }
 
 .sectionTitle {
-  color: #171a1f;
+  color: #1b1b18;
   text-align: center;
   font-family: 'karaoke',sans-serif;
   font-size: clamp(28px, 4vw, 42px); 
@@ -28,7 +28,7 @@
   margin-inline: auto;
   justify-content: center;
   box-sizing: border-box;
-  color: black;
+  color: #1b1b18;
   overflow: hidden;
   padding-bottom: 2vh; 
   
@@ -39,5 +39,5 @@
   max-width: 100%;
   box-sizing: border-box;
   padding: 1vh 1vw; 
-  color: black;
+  color: #1b1b18;
 }

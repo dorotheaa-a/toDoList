@@ -1,3 +1,12 @@
+.body {
+  margin-top: 50px;
+  background-color: #fcfaf4;
+  width: 100%;
+  max-width: 100vw;
+  padding: 4vh 4% 2vh;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
 .todoListContainer {
   background-color: #9b9788;
   width: 100%;
@@ -6,6 +15,7 @@
   overflow-x: hidden;
   padding: 2vh 5%;
   flex-direction: column;
+  border-radius: 24px;
 }
 
 .mainContent {
@@ -35,7 +45,6 @@
   color: #fcfaf4;
   font-family: "karaoke", sans-serif;
   font-size: clamp(16px, 1.5vw, 20px);
-  font-weight: 700;
   gap: 2vw;
 }
 
@@ -71,19 +80,18 @@
   justify-content: center;
 }
 
-
 .priorityHigh {
-  color: #dc143c;
+  color: #801313;
   background-color: #fcfaf4;
 }
 
 .priorityMedium {
-  color: #ff5733;
+  color: #0f2f9e;
   background-color: #fcfaf4;
 }
 
 .priorityLow {
-  color: #0bde44;
+  color: #014810;
   background-color: #fcfaf4;
 }
 
@@ -199,15 +207,15 @@
   user-select: none;
 }
 
-.tasktitle {
+.projecttitle {
   min-width: 185px;
   margin-left: 75px;
   color: #fcfaf4;
 }
 
-.datetitle,
-.timetitle,
-.prioritytitle {
+.sdatetitle,
+.edatetitle,
+.prioritytitle .statustitle {
   min-width: 150px;
   word-break: break-word;
   text-align: left;
@@ -228,4 +236,140 @@
   text-align: left;
   align-items: center;
   user-select: none;
+}
+
+.sectionTitle {
+  color: #1b1b18;
+  text-align: center;
+  font-family: "karaoke", sans-serif;
+  font-size: clamp(28px, 4vw, 42px);
+  margin: 0 0 3vh;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.tabHeader {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.tab {
+  cursor: pointer;
+  font-family: "karaoke", sans-serif;
+  color: #9b9788;
+  font-size: 1rem;
+}
+
+.activeTab {
+  color: #46443d;
+}
+
+.tabDivider {
+  border: none;
+  border-top: 1px solid #9b9788;
+  margin-bottom: 1.5rem;
+}
+
+.groupedView {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.statusGroup {
+  flex: 1;
+  min-width: 250px;
+  background-color: #39342c;
+  padding: 1rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.statusGroupNotStarted {
+  background-color: #801313;
+}
+
+.statusGroupInProgress {
+  background-color: #0f2f9e;
+}
+
+.statusGroupDone {
+  background-color: #014810;
+}
+
+.groupHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #f8f5e9;
+}
+
+.statusBadge {
+  background-color: #f8f5e9;
+  padding: 0.3rem 0.5rem 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 1rem;
+}
+
+.statusNotStarted {
+  color: #801313;
+}
+
+.statusInProgress {
+  color: #0f2f9e;
+}
+
+.statusDone {
+  color: #014810;
+}
+
+.groupCount {
+  padding: 0.3rem 0.5rem 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  background: #f8f5e9;
+  color: #1b1b18;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.projectCard {
+  background-color: #f8f5e9;
+  color: #1b1b18;
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.projectCardAdd {
+  background-color: #1b1b18;
+  color: #fcfaf4;
+  padding: 0.5rem;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.projectCardAdd:hover {
+  background-color: #2d2d2b;
+  color: #f8f5e9;
+  transform: translateY(-1px);
+}
+
+.cardPriority {
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  background-color: #d3d0c8;
+  width: fit-content;
 }

@@ -1,7 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "../../styles/DashboardScreen/NoteCard.module.css";
 
 const NoteCard = ({ title, items }) => {
+    const navigate = useNavigate();
+  
   return (
     <article className={styles.noteCard}>
       <div className={styles.cardContent}>
@@ -15,7 +18,7 @@ const NoteCard = ({ title, items }) => {
           ))}
         </ul>
       </div>
-      <button className={styles.editButton}>Edit</button>
+      <button className={styles.editButton} onClick={() => navigate("/note")}>Edit</button>
     </article>
   );
 };
