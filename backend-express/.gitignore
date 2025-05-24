@@ -3,5 +3,8 @@
 
 npm-debug.log*
 
-# Environment variables
+# environment variables
 .env*
+.env.prod
+
+# log files

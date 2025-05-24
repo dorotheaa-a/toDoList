@@ -1,42 +1,31 @@
 version: "3.8"
-services:
-  frontend:
-    build: ./frontend
-    ports:
-      - "3001:3001"
 
-  backend-django:
-    build: ./backend-django
+services:
+  mongo:
+    image: mongo:6.0
+    container_name: mongo
     ports:
-      - "8000:8000"
-    depends_on:
-      - db
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
 
   backend-express:
     build: ./backend-express
     ports:
-      - "3000:3000"
-    depends_on:
-      - db
-
-  api-gateway:
-    build: ./api-gateway
-    ports:
-      - "8080:8080"
-    depends_on:
-      - backend-django
-      - backend-express
-
-  db:
-    image: postgres:15
+      - "3001:3001"
     environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: pass
-      POSTGRES_DB: mydb
-    ports:
-      - "5432:5432"
+      - MONGO_URI=mongodb+srv://michellelyandry:JK3pGOmSDlFnPo2X@todo-cluster.gnnbwqv.mongodb.net/?retryWrites=true&w=majority&appName=todo-cluster
+    depends_on:
+      - mongo
 
-  # redis:
-  #   image: redis
-  #   ports:
-  #     - "6379:6379"
+ # backend-django:
+  #  build: ./backend-django
+   # ports:
+    #  - "8000:8000"
+   # environment:
+    #  - MONGO_URI=mongodb://mongo:27017/mydb
+   # depends_on:
+    #  - mongo #
+
+volumes:
+  mongo_data:
