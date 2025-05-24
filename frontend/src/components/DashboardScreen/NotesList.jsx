@@ -6,31 +6,53 @@ const NotesList = ({ selectedPage }) => {
   const isNotesPage = selectedPage === "notes";
   const notes = [
     {
-      title: "Project Page",
+      title: "Weekly Team Meeting Agenda",
       items: [
-        'Finish the "All Projects" tab',
-        "Make add project right side sidebar",
-        "Uh might need to make all the project buttons unless I can href?",
+        "Project updates from each team",
+        "Review pending blockers",
+        "Client feedback discussion",
+        "Plan next sprint tasks",
+        "Open Q&A",
       ],
     },
     {
-      title: "Landing Page?",
-      items: ["Do we need one? Maybe?", "Probably need to make one"],
-    },
-    {
-      title: "Improve Public Speaking Skills",
+      title: "Onboarding Checklist",
       items: [
-        "Join a speaking club",
-        "Record practice sessions",
-        "Learn from TED Talks",
+        "Set up company email and accounts",
+        "Read team handbook",
+        "Attend intro meetings with team leads",
+        "Access codebase and tools",
+        "Complete first task in project board",
       ],
     },
     {
-      title: "Build a Healthy Morning Routine",
+      title: "Bug Fix Priorities",
       items: [
-        "Wake up early",
-        "Exercise for 30 minutes",
-        "Learn from wellness podcasts",
+        "Login page not redirecting",
+        "Broken image on dashboard",
+        "Notifications not syncing on mobile",
+        "CSV export producing empty file",
+        "Fix typo in onboarding modal",
+      ],
+    },
+    {
+      title: "Quarterly Goals",
+      items: [
+        "Launch new dashboard feature",
+        "Improve system response time by 20%",
+        "Increase customer satisfaction score to 90%",
+        "Hire 2 new backend engineers",
+        "Document all critical processes",
+      ],
+    },
+    {
+      title: "Client Presentation Prep",
+      items: [
+        "Update slides with latest metrics",
+        "Add case study section",
+        "Rehearse with team twice",
+        "Confirm meeting time and platform",
+        "Send deck to client ahead of time",
       ],
     },
   ];

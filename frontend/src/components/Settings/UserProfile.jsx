@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../../styles/Settings/UserProfile.css";
-import Image from "../../assets/duck.jpg";
+import Image from "../../assets/girl.jpg";
 
 
 export default function UserProfile() {

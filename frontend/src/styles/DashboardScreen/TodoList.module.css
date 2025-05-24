@@ -71,7 +71,6 @@
   justify-content: center;
 }
 
-
 .priorityHigh {
   color: #dc143c;
   background-color: #fcfaf4;
@@ -228,4 +227,38 @@
   text-align: left;
   align-items: center;
   user-select: none;
+}
+
+.taskName,
+.date,
+.time {
+  border: none;
+  background: transparent;
+  font: inherit;
+  padding: 0;
+  margin: 0;
+  width: auto;
+  outline: none;
+  cursor: text;
+  border-radius: 0;
+  color: #fcfaf4;
+  accent-color: #fcfaf4;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: brightness(0) invert(1);
+}
+
+.priority {
+  border: none;
+  background: transparent;
+  font: inherit;
+  padding: 0;
+  margin: 0;
+  width: auto;
+  outline: none;
+  background-color: #9b9788;
+  cursor: pointer;
+  color: #fcfaf4;
 }

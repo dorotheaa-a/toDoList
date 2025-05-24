@@ -1,23 +1,34 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
+import Header from "../components/Header";
+import landingBanner from "../assets/snapshot.png";
+import heroImage from "../assets/landingBanner.jpg";
 import "../styles/LandingPage.css";
 
 const LandingPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="login-container">
-      <main className="login-main">
-        <h1 className="login-title">Welcome</h1>
-        <div className="button-container">
-          <button className="loginButton" onClick={() => navigate("/login")}>
-            Login
-          </button>
-          <button className="signButton" onClick={() => navigate("/signup")}>
-            Signup
+    <div>
+      <Header variant="landing" />
+      <div className="landing-hero">
+        <div className="hero-text">
+          <h1>A Better Task Management</h1>
+          <p>Write, plan and work with us</p>
+          <button className="tryButton" onClick={() => navigate("/signup")}>
+            Try it
           </button>
         </div>
-      </main>
+        <div className="hero-image">
+          <img src={heroImage} />
+        </div>
+      </div>
+      <div className="screenshot-section">
+        <img
+          src={landingBanner}
+          alt="App Screenshot"
+          className="screenshot-img"
+        />
+      </div>
     </div>
   );
 };

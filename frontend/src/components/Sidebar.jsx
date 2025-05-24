@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Sidebar.css";
-import pfp from "../assets/duck.jpg";
+import pfp from "../assets/girl.jpg";
 import settingsIcon from "../assets/settings.png";
 
 export default function Sidebar({
