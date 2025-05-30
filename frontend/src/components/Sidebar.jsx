@@ -17,7 +17,6 @@ export default function Sidebar({
 
   return (
     <aside className={`sidebar ${collapsed ? "collapsed" : "expanded"}`}>
-      {/* Sidebar header */}
       <div className="sidebar-top">
         <div className="username">
           <img src={pfp} alt="User profile" className="userAvatar" />

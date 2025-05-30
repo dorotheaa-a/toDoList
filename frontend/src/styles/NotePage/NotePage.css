@@ -19,12 +19,10 @@ body {
   color: #fcfaf4;
 }
 
-/* ReactQuill Styling */
 .custom-quill {
   margin-bottom: 2rem;
 }
 
-/* Toolbar container */
 .custom-quill .ql-toolbar.ql-snow {
   background-color: #242424;
   border: none;
@@ -32,32 +30,27 @@ body {
   border-radius: 6px;
 }
 
-/* Toolbar icons */
 .custom-quill .ql-toolbar.ql-snow .ql-formats button {
   color: fcfaf4 !important;
   opacity: 1 !important;
 }
 
-/* On hover */
 .custom-quill .ql-toolbar.ql-snow .ql-formats button:hover {
   color: #fcfaf4 !important;
   opacity: 1 !important;
 }
 
-/* On active (toggled format) */
 .custom-quill .ql-toolbar.ql-snow .ql-formats button.ql-active {
   color: #fcfaf4 !important;
   opacity: 1 !important;
 }
 
-/* Editor container */
 .custom-quill .ql-container.ql-snow {
   border: none;
   background-color: transparent;
   color: #1b1b18;
 }
 
-/* Label (e.g., "Normal") */
 .custom-quill .ql-toolbar.ql-snow .ql-picker-label {
   background-color: #1a1a1a;
   color: #fcfaf4 !important;
@@ -65,19 +58,16 @@ body {
   border-radius: 4px;
 }
 
-/* Dropdown options container */
 .custom-quill .ql-toolbar.ql-snow .ql-picker-options {
   background-color: #1a1a1a;
   color: #fcfaf4;
   border: 1px solid #444;
 }
 
-/* Each dropdown item */
 .custom-quill .ql-toolbar.ql-snow .ql-picker-item {
   color: #fcfaf4;
 }
 
-/* Hover state for dropdown items */
 .custom-quill .ql-toolbar.ql-snow .ql-picker-item:hover {
   background-color: #46443d;
 }
@@ -122,15 +112,21 @@ body {
   cursor: pointer;
   transition: color 0.2s;
   padding: 0.25rem 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .collapse-btn:hover {
   color: #f0ead2;
 }
 
-.header-title {
-  align-items: center;
+.header-title-input {
   font-size: 1.25rem;
   padding: 0.25rem 0.5rem;
-  margin-top: 1.25rem;
+  align-items: center;
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  color: #fcfaf4;
+  font-family: "karaoke", sans-serif;
 }

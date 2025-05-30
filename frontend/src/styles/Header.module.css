@@ -51,11 +51,9 @@
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-    box-shadow: 0 0 2px #171a1f1f;
+  box-shadow: 0 0 2px #171a1f1f;
   box-sizing: border-box;
 }
-
-
 
 .logoButton {
   display: inline-flex;
@@ -196,7 +194,7 @@
 }
 
 .signButton {
-  border-radius: 200px;
+  border-radius: 12px;
   justify-items: right;
   background: #fcfaf4;
   padding: 0.5rem 4rem;
@@ -220,7 +218,7 @@
 }
 
 .loginButton {
-  border-radius: 200px;
+  border-radius: 12px;
   justify-items: right;
   padding: 0.5rem 4rem;
   font-size: clamp(14px, 1.4vw, 16px);

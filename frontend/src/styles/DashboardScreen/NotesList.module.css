@@ -10,15 +10,13 @@
 .sectionTitle {
   color: #1b1b18;
   text-align: center;
-  font-family: 'karaoke',sans-serif;
-  font-size: clamp(28px, 4vw, 42px); 
-  font-weight: 600;                 
-  margin: 0 0 3vh;
+  font-family: "karaoke", sans-serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 600;
+  margin: 0 0 2vh;
   white-space: normal;
   word-break: break-word;
 }
-
-
 .notesGrid {
   display: flex;
   flex-wrap: wrap;
@@ -30,14 +28,31 @@
   box-sizing: border-box;
   color: #1b1b18;
   overflow: hidden;
-  padding-bottom: 2vh; 
-  
+  padding-bottom: 2vh;
 }
 
 .noteWrapper {
   flex: 1 1 300px;
   max-width: 100%;
   box-sizing: border-box;
-  padding: 1vh 1vw; 
+  padding: 1vh 1vw;
   color: #1b1b18;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+  padding: 0 4%;
+  margin-bottom: 3vh;
+}
+
+.searchInput {
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 200px;
+  margin-right: 9vw;
 }

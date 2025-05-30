@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from "react";
+import { Link } from "react-router-dom";
 import styles from "../../styles/DashboardScreen/Project.module.css";
 import search from "../../assets/magnifying_glass_white.png";
 import filter from "../../assets/filter.png";
@@ -21,7 +22,7 @@ const Project = () => {
   const [projects, setProjects] = useState([
     {
       id: 1,
-      name: "Project 1",
+      name: "Test Project A",
       start: "2023-11-01",
       end: "2023-11-01",
       priority: "High",
@@ -56,16 +57,11 @@ const Project = () => {
   const priorityOrder = { High: 3, Medium: 2, Low: 1 };
 
   const handleFilterClick = () => setSortAsc(!sortAsc);
-
   const handleSearchChange = (e) => setSearchQuery(e.target.value);
-
   const handleAddClick = () => setShowSidebar(true);
 
   const handleCreateProject = () => {
-    const newProj = {
-      id: Date.now(),
-      ...newProject,
-    };
+    const newProj = { id: Date.now(), ...newProject };
     setProjects([newProj, ...projects]);
     setShowSidebar(false);
     setNewProject({
@@ -181,14 +177,18 @@ const Project = () => {
             {filteredProjects.map((proj) => (
               <div key={proj.id} className={styles.todoItem}>
                 <div className={styles.todoInfo}>
-                  <input
-                    type="text"
+                  <Link
+                    to={`/project/${proj.id}`}
                     className={styles.taskName}
-                    value={proj.name}
-                    onChange={(e) =>
-                      handleInputChange(proj.id, "name", e.target.value)
+                    onClick={() =>
+                      localStorage.setItem(
+                        "selectedProject",
+                        JSON.stringify(proj)
+                      )
                     }
-                  />
+                  >
+                    {proj.name}
+                  </Link>
                   <input
                     type="date"
                     className={styles.date}
@@ -261,7 +261,18 @@ const Project = () => {
               </div>
               {items.map((proj) => (
                 <div key={proj.id} className={styles.projectCard}>
-                  <span className={styles.cardTitle}>{proj.name}</span>
+                  <Link
+                    to={`/project/${proj.id}`}
+                    className={styles.cardTitle}
+                    onClick={() =>
+                      localStorage.setItem(
+                        "selectedProject",
+                        JSON.stringify(proj)
+                      )
+                    }
+                  >
+                    {proj.name}
+                  </Link>
                   <span
                     className={`${styles.cardPriority} ${
                       styles[`priority${proj.priority}`]

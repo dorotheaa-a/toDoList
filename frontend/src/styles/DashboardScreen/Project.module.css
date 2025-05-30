@@ -29,6 +29,7 @@
 .header {
   background-color: transparent;
   padding: 0.5vh 0;
+  padding-right: 0.5vh;
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
@@ -194,7 +195,6 @@
   color: #fcfaf4;
 }
 
-
 .statustitle {
   margin-left: 75px;
   color: #fcfaf4;
@@ -215,7 +215,6 @@
   text-align: left;
   align-items: center;
   user-select: none;
-  
 }
 
 .sectionTitle {
@@ -354,6 +353,17 @@
   width: fit-content;
 }
 
+.cardTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-family: "karaoke", sans-serif;
+  margin: 0;
+  color: #1b1b18;
+  padding-bottom: 0.2vh;
+  cursor: pointer;
+  text-decoration: none;
+}
+
 .taskName,
 .date,
 .time {
@@ -369,6 +379,11 @@
   accent-color: #fcfaf4;
 }
 
+.taskName {
+  cursor: pointer;
+  text-decoration: none;
+}
+
 .date,
 .time,
 .priority {
@@ -377,7 +392,6 @@
   text-align: left;
   align-items: center;
   user-select: none;
-  
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator,

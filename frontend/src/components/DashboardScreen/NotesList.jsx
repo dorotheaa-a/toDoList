@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import NoteCard from "./NoteCard";
 import styles from "../../styles/DashboardScreen/NotesList.module.css";
 
 const NotesList = ({ selectedPage }) => {
+  const [searchQuery, setSearchQuery] = useState("");
   const isNotesPage = selectedPage === "notes";
+
   const notes = [
     {
+      id: "181202",
+      title: "Make Projects and Notes Seperate Pages",
+      items: [
+        "dashboard/notes",
+        "dashboard/projects",
+        "Make it so that can use the header",
+      ],
+    },
+    {
+      id: "1",
       title: "Weekly Team Meeting Agenda",
       items: [
         "Project updates from each team",
@@ -16,6 +28,7 @@ const NotesList = ({ selectedPage }) => {
       ],
     },
     {
+      id: "2",
       title: "Onboarding Checklist",
       items: [
         "Set up company email and accounts",
@@ -26,6 +39,7 @@ const NotesList = ({ selectedPage }) => {
       ],
     },
     {
+      id: "3",
       title: "Bug Fix Priorities",
       items: [
         "Login page not redirecting",
@@ -36,6 +50,7 @@ const NotesList = ({ selectedPage }) => {
       ],
     },
     {
+      id: "4",
       title: "Quarterly Goals",
       items: [
         "Launch new dashboard feature",
@@ -46,6 +61,7 @@ const NotesList = ({ selectedPage }) => {
       ],
     },
     {
+      id: "5",
       title: "Client Presentation Prep",
       items: [
         "Update slides with latest metrics",
@@ -57,15 +73,36 @@ const NotesList = ({ selectedPage }) => {
     },
   ];
 
+  const filteredNotes = isNotesPage
+    ? notes.filter(
+        (note) =>
+          note.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          note.items.some((item) =>
+            item.toLowerCase().includes(searchQuery.toLowerCase())
+          )
+      )
+    : notes.slice(0, 3);
+
   return (
     <section
       className={styles.notesSection}
       style={isNotesPage ? { marginTop: "50px" } : {}}
     >
       <h2 className={styles.sectionTitle}>Notes List</h2>
+      {isNotesPage && (
+        <div className={styles.headerRow}>
+          <input
+            type="text"
+            placeholder="Search notes..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className={styles.searchInput}
+          />
+        </div>
+      )}
       <div className={styles.notesGrid}>
-        {(isNotesPage ? notes : notes.slice(0, 3)).map((note, index) => (
-          <div key={index} className={styles.noteWrapper}>
+        {filteredNotes.map((note) => (
+          <div key={note.id} className={styles.noteWrapper}>
             <NoteCard {...note} />
           </div>
         ))}

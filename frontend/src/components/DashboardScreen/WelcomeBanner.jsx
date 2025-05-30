@@ -5,6 +5,24 @@ import styles from "../../styles/DashboardScreen/WelcomeBanner.module.css";
 const WelcomeBanner = () => {
   const navigate = useNavigate();
 
+  const handleNewNote = () => {
+    const today = new Date();
+    const formattedDate = today.toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    });
+
+    const newNote = {
+      id: "new",
+      title: `New Note - ${formattedDate}`,
+      items: [],
+    };
+
+    localStorage.setItem("selectedNote", JSON.stringify(newNote));
+    navigate("/note/new");
+  };
+
   return (
     <section className={styles.welcomeSection}>
       <div className={styles.overlay}>
@@ -18,10 +36,7 @@ const WelcomeBanner = () => {
               year: "numeric",
             })}
           </p>
-          <button
-            className={styles.newNoteButton}
-            onClick={() => navigate("/note")}
-          >
+          <button className={styles.newNoteButton} onClick={handleNewNote}>
             Make a New Note
           </button>
         </div>
