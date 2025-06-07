@@ -1,15 +1,33 @@
-const express = require('express');
-const router = express.Router();
-const reminderController = require('../controllers/reminderController');
-const auth = require('../middlewares/auth');
+const mongoose = require('mongoose');
 
-router.use(auth);
+const reminderSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true,
+  },
+  description: String,
+  dueDate: Date,
+  isCompleted: {
+    type: Boolean,
+    default: false,
+  },
+  reminder: {
+    enabled: {
+      type: Boolean,
+      default: false,
+    },
+    triggerAt: Date,
+  },
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
+  project: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Project',
+    default: null, 
+  },
+}, { timestamps: true });
 
-router.post('/', reminderController.createReminder);
-router.get('/', reminderController.getReminders);
-router.get('/:reminderId', reminderController.getReminderById);
-router.put('/:reminderId', reminderController.updateReminder);
-router.delete('/:reminderId', reminderController.deleteReminder);
-router.post('/:reminderId/reminder', reminderController.setReminderTime);
-
-module.exports = router;
+module.exports = mongoose.model('Reminder', reminderSchema);

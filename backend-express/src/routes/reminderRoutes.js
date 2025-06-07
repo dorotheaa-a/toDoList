@@ -10,7 +10,7 @@ router.get('/', reminderController.getReminders);
 router.get('/:reminderId', reminderController.getReminderById);
 router.put('/:reminderId', reminderController.updateReminder);
 router.delete('/:reminderId', reminderController.deleteReminder);
-router.post('/:reminderId/reminder', reminderController.setReminder);
+router.post('/:reminderId/reminder', reminderController.setReminder); 
 router.patch('/:reminderId/complete', reminderController.markAsCompleted);
 
 module.exports = router;
