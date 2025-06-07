@@ -1,21 +1,22 @@
-import React, { useState } from "react";
-import NoteCard from "./NoteCard";
-import styles from "../../styles/DashboardScreen/NotesList.module.css";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import NoteCard from "../components/DashboardScreen/NoteCard.jsx";
+import styles from "../styles/DashboardScreen/NotesList.module.css";
+import Header from "../components/Header.jsx";
 
-const NotesList = ({ selectedPage }) => {
+const ProjectDetails = () => {
+  const { id } = useParams();
+  const [project, setProject] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
-  const isNotesPage = selectedPage === "notes";
+
+  useEffect(() => {
+    const saved = JSON.parse(localStorage.getItem("selectedProject"));
+    if (saved && saved.id.toString() === id) {
+      setProject(saved);
+    }
+  }, [id]);
 
   const notes = [
-    {
-      id: "181202",
-      title: "Make Projects and Notes Seperate Pages",
-      items: [
-        "dashboard/notes",
-        "dashboard/projects",
-        "Make it so that can use the header",
-      ],
-    },
     {
       id: "1",
       title: "Weekly Team Meeting Agenda",
@@ -73,23 +74,22 @@ const NotesList = ({ selectedPage }) => {
     },
   ];
 
-  const filteredNotes = isNotesPage
-    ? notes.filter(
-        (note) =>
-          note.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          note.items.some((item) =>
-            item.toLowerCase().includes(searchQuery.toLowerCase())
-          )
-      )
-    : notes.slice(0, 3);
+  if (!project) {
+    return (
+      <div className={styles.notesSection}>
+        Project not found or not loaded.
+      </div>
+    );
+  }
 
   return (
-    <section
-      className={styles.notesSection}
-      style={isNotesPage ? { marginTop: "50px" } : {}}
-    >
-      <h2 className={styles.sectionTitle}>Notes List</h2>
-      {isNotesPage && (
+    <>
+      <Header
+        selectedPage={"projects"}
+        variant="dashboard"
+      />
+      <section className={styles.notesSection} style={{ marginTop: "50px" }}>
+        <h2 className={styles.sectionTitle}>{project.name}</h2>
         <div className={styles.headerRow}>
           <input
             type="text"
@@ -99,16 +99,24 @@ const NotesList = ({ selectedPage }) => {
             className={styles.searchInput}
           />
         </div>
-      )}
-      <div className={styles.notesGrid}>
-        {filteredNotes.map((note) => (
-          <div key={note.id} className={styles.noteWrapper}>
-            <NoteCard {...note} />
-          </div>
-        ))}
-      </div>
-    </section>
+        <div className={styles.notesGrid}>
+          {notes
+            .filter(
+              (note) =>
+                note.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                note.items.some((item) =>
+                  item.toLowerCase().includes(searchQuery.toLowerCase())
+                )
+            )
+            .map((note) => (
+              <div key={note.id} className={styles.noteWrapper}>
+                <NoteCard {...note} />
+              </div>
+            ))}
+        </div>
+      </section>
+    </>
   );
 };
 
-export default NotesList;
+export default ProjectDetails;

@@ -1,5 +1,5 @@
 .noteCard {
-  background-color: #a4978f;
+  background-color: #9b9788;
   padding: 2vh 2vw;
   border-radius: 12px;
   box-sizing: border-box;
@@ -10,34 +10,34 @@
 }
 
 .cardContent {
-  background-color: #a4978f;
+  background-color: #9b9788;
   padding: 1.5vh 1vw;
   border-radius: 8px;
   width: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: left;        
-  justify-content: flex-start; 
+  align-items: left;
+  justify-content: flex-start;
   flex-grow: 1;
-  text-align: left;         
-  gap: 1vh;                 
-  color: white;
+  text-align: left;
+  gap: 1vh;
+  color: #fcfaf4;
 }
 
 .cardTitle {
-  font-size: clamp(20px, 1.6vw, 24px); 
+  font-size: clamp(20px, 1.6vw, 24px);
   font-weight: 700;
-  font-family: 'karaoke',sans-serif;
+  font-family: "karaoke", sans-serif;
   margin: 0;
-  color: white;
+  color: #fcfaf4;
   padding-bottom: 0.2vh;
 }
 
 .divider {
   width: 100%;
   height: 1px;
-  background-color: #6d615a;
+  background-color: #1b1b18;
   margin: 0.5vh 0;
 }
 
@@ -45,9 +45,9 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  font-size: clamp(16px, 1.4vw, 18px); 
+  font-size: clamp(16px, 1.4vw, 18px);
   font-weight: 400;
-  font-family: 'karaoke',sans-serif;
+  font-family: "karaoke", sans-serif;
   line-height: 1.4;
 }
 
@@ -55,27 +55,48 @@
   margin-bottom: 0.3vh;
 }
 
-
 .editButton {
   margin-top: 2vh;
   padding: 1vh 2vw;
   font-size: clamp(16px, 1.4vw, 18px);
-  font-family: 'karaoke',sans-serif;
+  font-family: "karaoke", sans-serif;
   border-radius: 6px;
   border: none;
-  background-color: #fff;
-  color: #7a675c;
+  background-color: #706e62;
+  color: #fcfaf4;
   cursor: pointer;
   width: 100%;
   max-width: 100%;
   text-align: center;
   box-sizing: border-box;
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  user-select: none;
 }
 
 .editButton:hover {
-  background-color: #7a675c;
-  color: #fff;
-  transform: translateY(-1px); 
+  background-color: #46443d;
+  color: #f8f5e9;
+  transform: translateY(-1px);
 }
 
+.notesGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vw;
+  width: 100%;
+  max-width: 90%;
+  margin-inline: auto;
+  justify-content: center;
+  box-sizing: border-box;
+  color: #1b1b18;
+  overflow: hidden;
+  padding-bottom: 2vh;
+}
+
+.noteWrapper {
+  flex: 1 1 300px;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 1vh 1vw;
+  color: #1b1b18;
+}

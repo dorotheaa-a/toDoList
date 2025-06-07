@@ -1,7 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "../../styles/DashboardScreen/NoteCard.module.css";
 
-const NoteCard = ({ title, items }) => {
+const NoteCard = ({ id, title, items }) => {
+  const navigate = useNavigate();
+
+  const handleEdit = () => {
+    localStorage.setItem("selectedNote", JSON.stringify({ id, title, items }));
+    navigate(`/note/${id}`);
+  };
+
   return (
     <article className={styles.noteCard}>
       <div className={styles.cardContent}>
@@ -15,7 +23,9 @@ const NoteCard = ({ title, items }) => {
           ))}
         </ul>
       </div>
-      <button className={styles.editButton}>Edit</button>
+      <button className={styles.editButton} onClick={handleEdit}>
+        Edit
+      </button>
     </article>
   );
 };

@@ -1,0 +1,132 @@
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.app-container {
+  display: flex;
+  background-color: #9b9788;
+  color: #fcfaf4;
+  min-height: 1080px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 0;
+}
+
+.header-title {
+  color: #fcfaf4;
+}
+
+.custom-quill {
+  margin-bottom: 2rem;
+}
+
+.custom-quill .ql-toolbar.ql-snow {
+  background-color: #242424;
+  border: none;
+  padding: 8px 8px;
+  border-radius: 6px;
+}
+
+.custom-quill .ql-toolbar.ql-snow .ql-formats button {
+  color: fcfaf4 !important;
+  opacity: 1 !important;
+}
+
+.custom-quill .ql-toolbar.ql-snow .ql-formats button:hover {
+  color: #fcfaf4 !important;
+  opacity: 1 !important;
+}
+
+.custom-quill .ql-toolbar.ql-snow .ql-formats button.ql-active {
+  color: #fcfaf4 !important;
+  opacity: 1 !important;
+}
+
+.custom-quill .ql-container.ql-snow {
+  border: none;
+  background-color: transparent;
+  color: #1b1b18;
+}
+
+.custom-quill .ql-toolbar.ql-snow .ql-picker-label {
+  background-color: #1a1a1a;
+  color: #fcfaf4 !important;
+  border: 1px solid #444;
+  border-radius: 4px;
+}
+
+.custom-quill .ql-toolbar.ql-snow .ql-picker-options {
+  background-color: #1a1a1a;
+  color: #fcfaf4;
+  border: 1px solid #444;
+}
+
+.custom-quill .ql-toolbar.ql-snow .ql-picker-item {
+  color: #fcfaf4;
+}
+
+.custom-quill .ql-toolbar.ql-snow .ql-picker-item:hover {
+  background-color: #46443d;
+}
+
+.page-header {
+  width: 100%;
+  height: 40px;
+  max-height: 40px;
+  min-height: 40px;
+  background-color: #46443d;
+  box-shadow: 0 0 2px #171a1f1f;
+  padding: 0.25rem 1rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-shadow: 0 0 5px #171a1f1f;
+}
+
+.note-cover {
+  width: 100%;
+  max-height: 300px;
+  overflow: hidden;
+  box-shadow: 0 0 5px #171a1f1f;
+}
+
+.page-wrapper {
+  padding: 2rem 6rem;
+}
+
+.cover-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  max-height: 300px;
+}
+
+.collapse-btn {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: #fcfaf4;
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 0.25rem 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.collapse-btn:hover {
+  color: #f0ead2;
+}
+
+.header-title-input {
+  font-size: 1.25rem;
+  padding: 0.25rem 0.5rem;
+  align-items: center;
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  color: #fcfaf4;
+  font-family: "karaoke", sans-serif;
+}

@@ -1,0 +1,6 @@
+# react front dockerignore
+node_modules/
+build/
+.DS_Store
+.env
+*.log

@@ -1,0 +1,56 @@
+.wrapper {
+  overflow: hidden;
+  height: 100%;
+  max-height: 100vh;
+  font-size: 1.5rem;
+  user-select: none;
+
+}
+
+.content {
+  align-content: center;
+}
+
+.wrapper select {
+  padding: 0.1rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+  background-color: #fcfaf4;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+  min-width: 150px;
+  color: #46443d;
+  border-style: solid;
+  border-color: #6c584c;
+}
+
+.wrapper select:hover,
+.wrapper select:focus,
+.wrapper select::after {
+  border-color: #706e62;
+  
+}
+
+.wrapper button {
+  border-radius: 200px;
+  justify-items: right;
+  background: #fcfaf4;
+  padding: 0.4rem;
+  font-size: clamp(14px, 1.4vw, 16px);
+  font-family: "karaoke", sans-serif;
+  align-items: center;
+  color: #46443d;
+  border-style: solid;
+  border-color: #6c584c;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  min-width: 150px;
+  max-width: 150px;
+}
+
+.wrapper button:hover {
+  color: #fcfaf4;
+  background: #706e62;
+  transform: translateY(-1px);
+}
