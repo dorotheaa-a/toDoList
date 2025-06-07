@@ -3,13 +3,27 @@ import axiosInstance from "../config/axiosConfig";
 
 //import all the api
 import {
-
+    API_URL,
+    SIGNUP,
+    LOGIN,
+    LOGOUT,
+    POST_FORGOT_PASSWORD,
+    PUT_RESET_PASSWORD,
+    PROFILE_DATA,
+    API_NOTES,
+    API_NOTE_DETAIL,
+    API_NOTE_COLLABORATORS,
+    API_PROJECTS,
+    API_PROJECT_DETAIL,
+    API_PROJECT_COLLABORATORS,
+    API_REMINDERS,
+    API_REMINDER_DETAIL
 } from "../config/endpoints"
 
 //api processes
 const login = async (data) => {
     try {
-      const response = await axiosInstance.post(API_LOGIN, data);
+      const response = await axiosInstance.post(LOGIN, data);
       const token = response.data.token;
       const userId = response.data.user.id;
       localStorage.setItem("token", token);
@@ -29,7 +43,7 @@ const login = async (data) => {
 
   const register = async (data) => {
     try {
-      const response = await axiosInstance.post(API_SIGNUP, data);
+      const response = await axiosInstance.post(SIGNUP, data);
       const token = response.data.token;
       const userId = response.data.user.id;
       localStorage.setItem("token", token);
@@ -48,7 +62,7 @@ const login = async (data) => {
   const putResetPassword = async ({ email, password }) => {
     const data = { email, password };
     try {
-      const res = await axiosInstance.put(API_PUT_RESET_PASSWORD, data);
+      const res = await axiosInstance.put(PUT_RESET_PASSWORD, data);
       return res;
     } catch (error) {
       console.error("Error resetting password: ", error);
@@ -59,7 +73,7 @@ const login = async (data) => {
 // Get Profile Datas
 const fetchProfileData = async (data) => {
     try {
-      const res = await axiosInstance.post(API_PROFILE_DATA, data);
+      const res = await axiosInstance.post(PROFILE_DATA, data);
       return res.data;
     } catch (error) {
       console.error("Error fetching profile data:", error);
@@ -69,5 +83,8 @@ const fetchProfileData = async (data) => {
 
 // make all process available
   export {
-
+    login,
+    register,
+    putResetPassword,
+    fetchProfileData
   };

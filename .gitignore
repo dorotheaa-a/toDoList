@@ -1,0 +1,71 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+/backend_django/venv
+
+
+# Python
+*.pyc
+__pycache__/
+.Python
+venv/
+env/
+myenv/
+.env/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.pytest_cache/
+htmlcov/
+build/
+develop-eggs/
+dist/
+eggs/
+.eggs/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.mo
+*.pot
+*.log
+
+
+# Environment variables
+.env
+# If you have a separate file for production secrets not in .env, ignore it too:
+# secret_settings.py
+
+# Docker (if used)
+.dockerignore
+
+# NPM / Node (if frontend is integrated)
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
