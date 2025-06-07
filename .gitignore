@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/backend-express/node_modules
 /.pnp
 .pnp.js
 
@@ -63,7 +64,7 @@ var/
 # Docker (if used)
 .dockerignore
 
-# NPM / Node (if frontend is integrated)
+
 node_modules/
 npm-debug.log
 yarn-debug.log
