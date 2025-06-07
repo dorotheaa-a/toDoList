@@ -7,7 +7,6 @@ const LOGOUT = "/auth/logout";
 const POST_FORGOT_PASSWORD = "/auth/forgot-password";
 const PUT_RESET_PASSWORD = "/auth/reset-password";
 const PROFILE_DATA = "/profile";
-const GET_NOTE = "/api/notes"
 
 //get data
 //all note api
@@ -23,6 +22,7 @@ const API_PROJECT_COLLABORATORS = "/projects/collaborators";
 //tasks renamed as reminder
 const API_REMINDERS = "/reminders"; //POST & GET all
 const API_REMINDER_DETAIL = "/reminders"; //for GET, PUT, DEL (i.e /notes/{id})
+const API_REMINDER_COMPLETE = "/reminders";
 
 // const 
 
@@ -41,5 +41,6 @@ export {
     API_PROJECT_DETAIL,
     API_PROJECT_COLLABORATORS,
     API_REMINDERS,
-    API_REMINDER_DETAIL
+    API_REMINDER_DETAIL,
+    API_REMINDER_COMPLETE
 };
