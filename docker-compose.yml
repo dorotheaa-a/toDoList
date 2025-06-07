@@ -1,7 +1,7 @@
 services:
   # PostgreSQL Database
   db:
-    image: postgres:15-alpine
+    image: postgres:16-alpine
     env_file: .env  
     environment:
       - POSTGRES_USER=${POSTGRES_USER}
@@ -21,8 +21,9 @@ services:
   # Django Backend
   django:
     build:
-      context: ./backend-django
+      context: ./backend_django
       dockerfile: Dockerfile.prod
+    restart: unless-stopped
     env_file: .env
     environment:
       - DATABASE_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
@@ -33,6 +34,8 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    volumes:
+      - ./djang_backend:/app
 
   # Express Backend
   express:
@@ -50,26 +53,36 @@ services:
       db:
         condition: service_healthy
 
-  # Golang Middleware
+  # --- Golang Middleware Service (API Gateway / BFF) ---
   middleware:
     build:
-      context: ./middleware
-      dockerfile: Dockerfile.prod
+      context: ./go_middleware 
+      dockerfile: Dockerfile
+    restart: unless-stopped
     ports:
-      - "8080:8080"
+      - "3001:3001" # HostPort:ContainerPort
+    env_file:
+      - .env.go_middleware # DJANGO_BACKEND_URL=http://backend:8000/api, GO_PORT
     depends_on:
-      - django
-      - express
+      backend: # Go middleware depends on Django backend
+        condition: service_started
+    volumes:
+      - ./go_middleware:/app
 
   # React Frontend
   frontend:
     build:
       context: ./frontend
-      dockerfile: Dockerfile.prod
+      dockerfile: Dockerfile
     ports:
-      - "80:80"
+      - "3000:80"
+    restart: unless-stopped
     depends_on:
-      - middleware
+      middleware: # Frontend depends on Go middleware
+        condition: service_started
+    volumes:
+      - ./react_frontend:/app
+      - /app/node_modules
 
 volumes:
   postgres_data:
