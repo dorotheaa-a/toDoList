@@ -1,0 +1,33 @@
+/venv
+
+# Python
+*.pyc
+__pycache__/
+.Python
+venv/
+env/
+myenv/
+.env/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.pytest_cache/
+htmlcov/
+build/
+develop-eggs/
+dist/
+eggs/
+.eggs/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.mo
+*.pot
+*.log
+*.sqlite3 # Database file (if using SQLite)
+*.db # Other generic database files
+.DS_Store # macOS specific files
