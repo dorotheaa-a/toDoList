@@ -9,23 +9,19 @@ services:
     volumes:
       - mongo_data:/data/db
 
-  backend-express:
-    build: ./backend-express
+  backend:
+    build:
+      context: ./backend-express
+      dockerfile: Dockerfile
+    container_name: backend
     ports:
       - "3001:3001"
     environment:
+      - PORT=3001
+      - JWT_SECRET=yourSuperSecretKeyHere
       - MONGO_URI=mongodb+srv://michellelyandry:JK3pGOmSDlFnPo2X@todo-cluster.gnnbwqv.mongodb.net/?retryWrites=true&w=majority&appName=todo-cluster
     depends_on:
       - mongo
-
- # backend-django:
-  #  build: ./backend-django
-   # ports:
-    #  - "8000:8000"
-   # environment:
-    #  - MONGO_URI=mongodb://mongo:27017/mydb
-   # depends_on:
-    #  - mongo #
 
 volumes:
   mongo_data:
