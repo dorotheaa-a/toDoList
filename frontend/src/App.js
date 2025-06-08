@@ -11,24 +11,28 @@ import Setting from "./pages/Settings.jsx";
 import AddMember from "./pages/UserCard.jsx";
 import NotePage from "./pages/NotePage.jsx";
 
+import PrivateRoute from "./components/PrivateRoute.jsx";
 import "./styles/global.css";
 
 function App() {
   return (
     <Routes>
+      {/*Public Routes */}
       <Route path="/" element={<Landing />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/reset" element={<Reset />} />
-      <Route path="/note" element={<Note />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/settings" element={<Setting />} />
-      <Route path="/members" element={<AddMember />} />
-      <Route path="/project/:id" element={<ProjectDetails />} />
-      <Route path="/note/:id" element={<NotePage />} />
-      <Route path="/dashboard/notes" element={<Dashboard />} />
-      <Route path="/dashboard/projects" element={<Dashboard />} />
-    </Routes>
+
+      {/*Protected ones */}
+      <Route path="/note" element={<PrivateRoute><Note /></PrivateRoute>} />
+      <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+      <Route path="/settings" element={<PrivateRoute><Setting /></PrivateRoute>} />
+      <Route path="/members" element={<PrivateRoute><AddMember /></PrivateRoute>} />
+      <Route path="/project/:id" element={<PrivateRoute><ProjectDetails /></PrivateRoute>} />
+      <Route path="/note/:id" element={<PrivateRoute><NotePage /></PrivateRoute>} />
+      <Route path="/dashboard/notes" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+      <Route path="/dashboard/projects" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+   </Routes>
   );
 }
 
