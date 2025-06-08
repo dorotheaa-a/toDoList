@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
-const { logger } = require('../utils/logger');
+const logger = require('../utils/logger'); 
 const { sendResetEmail } = require('../services/emailService');
 
 exports.signup = async (req, res) => {
@@ -40,7 +40,6 @@ exports.login = async (req, res) => {
 };
 
 exports.logout = async (req, res) => {
-  // Stateless: Token is discarded on client
   res.json({ message: 'Logged out successfully (stateless JWT)' });
 };
 

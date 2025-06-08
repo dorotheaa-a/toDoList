@@ -19,7 +19,7 @@ services:
     environment:
       - PORT=3001
       - JWT_SECRET=yourSuperSecretKeyHere
-      - MONGO_URI=mongodb+srv://michellelyandry:JK3pGOmSDlFnPo2X@todo-cluster.gnnbwqv.mongodb.net/?retryWrites=true&w=majority&appName=todo-cluster
+      - MONGO_URI=mongodb+srv://michellelyandry:JK3pGOmSDlFnPo2X@todo-cluster.gnnbwqv.mongodb.net/Yoda?retryWrites=true&w=majority&appName=todo-cluster
     depends_on:
       - mongo
 
