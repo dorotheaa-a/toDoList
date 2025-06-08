@@ -17,7 +17,7 @@ class Note(models.Model):
     # use bigautofield 
     project = models.ForeignKey(
         'project.Project',
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
         related_name='notes',
         null=True,
         blank=True,
@@ -60,16 +60,17 @@ class Note(models.Model):
         verbose_name_plural = "Notes"
         
     def __str__(self):
-        return f"{self.title} (Project: {self.project.title})"
-    
+        if self.project:
+            return f"{self.title} (Project: {self.project.title})"
+        return f"{self.title} (No Project)"
+
     def save(self, *args, **kwargs):
         # custom save to update search vector
         super().save(*args, **kwargs)
-        if 'updated_fields' not in kwargs or 'content' in kwargs['updated_fields']:
-            from django.contrib.postgres.search import SearchVector
-            Note.objects.filter(pk=self.pk).update(
-                search_vector=SearchVector('title', 'content')
-            )
+        from django.contrib.postgres.search import SearchVector
+        Note.objects.filter(pk=self.pk).update(
+            search_vector=SearchVector('title', 'content')
+        )
 
 class NoteCollaborator(models.Model):
     # intermediary for note collab
@@ -97,7 +98,7 @@ class NoteCollaborator(models.Model):
             ('comment', 'Can Comment'),
             ('edit', 'Can Edit')
         ],
-        default='view'
+        default='edit'
     )
 
     class Meta:

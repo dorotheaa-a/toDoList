@@ -29,10 +29,14 @@ class ProjectViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         # gets project where user owns/collab
+        user = self.request.user
         return Project.objects.filter(
-            models.Q(owner=self.request.user) |
-            models.Q(collaborators__user=self.request.user)
-        ).distinct().prefetch_related('notes', 'collaborators__user')
+            models.Q(owner=user) |
+            models.Q(collaborators=user)
+        ).distinct().prefetch_related(
+            'notes',
+            'collaboration_set__user'
+        )
     
     def perform_create(self, serializer):
         # owner into current user aftr create
@@ -53,8 +57,7 @@ class ProjectViewSet(viewsets.ModelViewSet):
 
         if request.method == 'POST':
             return self._add_collaborator(project, request)
-        else:
-            return self._remove_collaborator(project, request)
+        return self._remove_collaborator(project, request)
         
     def _add_collaborator(self, project, request):
         email = request.data.get('email')

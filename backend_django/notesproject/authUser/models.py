@@ -1,13 +1,10 @@
-# from django.db import models
 from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager, PermissionsMixin
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
-from django.contrib.postgres.fields import ArrayField
 import uuid
 from project.models import Project
 from django.core.exceptions import ValidationError
-# from .models import Note, Project
 
 # Create your models here.
 
@@ -38,8 +35,8 @@ class CustomUser(AbstractUser):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     username = models.CharField(_('username'), max_length=150, unique=True)
     email = models.EmailField(_('email address'), unique=True)
-      
-    # # for collab
+
+    # for collab
     shared_notes = models.ManyToManyField(
         'notes.Note', related_name='notes_shared', blank=True
     )
@@ -47,7 +44,7 @@ class CustomUser(AbstractUser):
         'project.Project', related_name='project_shared', blank=True
     )
 
-    # receive_notifications = models.BooleanField(default=True)
+    # receive_notifications = models.BooleanField(default=True)  # Uncomment if you plan to support per-user notif toggle
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -62,7 +59,7 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return f"{self.username} ({self.email})"
-    
+
     def to_go_dict(self):
         """Serialization format for Go middleware"""
         return {
@@ -72,19 +69,17 @@ class CustomUser(AbstractUser):
             # Fetch the IDs from the ManyToMany relationship
             "shared_notes": list(self.shared_notes.values_list('id', flat=True)),
             "shared_projects": list(self.shared_projects.values_list('id', flat=True)),
-            
             "is_active": self.is_active,
             "created_at": self.created_at.isoformat()
-    }
+        }
 
     def share_project_with_user(self, project: Project, notes=None):
-        #  add the project to user's shared proj
+        # add the project to user's shared proj
         self.shared_projects.add(project)
 
         # all notes from project to user's shared notes
-        notes_in_project = project.notes.all() # Assumes project has a related_name='notes' from Note model
+        notes_in_project = project.notes.all()  # Assumes project has a related_name='notes' from Note model
         self.shared_notes.add(*notes_in_project)
-        
 
     def unshare_project(self, project: Project):
         # rm sharing project & related notes

@@ -11,7 +11,7 @@ class ReminderListView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        return Reminder.objects.filter(user=self.request.user.pk)
+        return Reminder.objects.filter(user=self.request.user)
     
     def perform_create(self, serializer):
         serializer.save(user=self.request.user.pk)
@@ -22,4 +22,4 @@ class ReminderDetailView(generics.RetrieveUpdateDestroyAPIView):
     # lookup_field = '_id'
 
     def get_queryset(self):
-        return Reminder.objects.filter(user=self.request.user.pk)
+        return Reminder.objects.filter(user=self.request.user)

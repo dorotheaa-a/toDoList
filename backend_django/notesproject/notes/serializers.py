@@ -19,7 +19,7 @@ class NoteCollaboratorSerializer(serializers.ModelSerializer):
 class NoteSerializer(serializers.ModelSerializer):
     owner = UserSerializer(read_only=True)
     collaborators = NoteCollaboratorSerializer(
-        source='note_collaborations',
+        source='collaboration_set',
         many=True,
         read_only=True
     )
@@ -43,7 +43,6 @@ class NoteSerializer(serializers.ModelSerializer):
             'owner',
             'shared_with',
             'collaborators',
-            'tags',
             'created_at',
             'updated_at'
         ]
@@ -91,7 +90,7 @@ class NoteSerializer(serializers.ModelSerializer):
             existing_collaborators.delete()
 
             # add new collaborators
-            existing_user_ids = instance.collaborators.value_list('user_id', flat=True)
+            existing_user_ids = instance.collaborators.values_list('user_id', flat=True)
 
             for user in shared_with_users:
                 if user.id not in existing_user_ids:
