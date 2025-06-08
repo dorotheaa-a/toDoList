@@ -10,10 +10,10 @@ const logger = require('./src/utils/logger');
 
 const app = express();
 
-// Connect to MongoDB
+//connect to MongoDB
 connectDB();
 
-// Middlewares
+//middlewares
 app.use(helmet());
 app.use(cors({
   origin: process.env.CORS_ORIGIN || '*',
@@ -23,7 +23,7 @@ app.use(cors({
 app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true }));
 
-// Rate Limiting
+//rate Limiting
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 100,
@@ -31,12 +31,12 @@ const limiter = rateLimit({
 });
 app.use('/api', limiter);
 
-// Logging
+//logging
 if (process.env.NODE_ENV !== 'test') {
   app.use(morgan('combined', { stream: logger.stream }));
 }
 
-// Routes
+//routes
 app.use('/api/auth', require('./src/routes/authRoutes'));
 app.use('/api/users', require('./src/routes/userRoutes'));
 app.use('/api/reminders', require('./src/routes/reminderRoutes')); // renamed from /tasks
@@ -44,7 +44,7 @@ app.use('/api/notes', require('./src/routes/noteRoutes'));
 app.use('/api/projects', require('./src/routes/projectRoutes'));
 app.use('/api/notifications', require('./src/routes/notificationRoutes'));
 
-// Health Check
+//health Check
 app.get('/api/health', (req, res) => {
   res.status(200).json({
     status: 'OK',
@@ -53,7 +53,7 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// 404 handler
+//404 handler
 app.use((req, res) => {
   res.status(404).json({
     status: 'error',
@@ -61,7 +61,7 @@ app.use((req, res) => {
   });
 });
 
-// Global error handler
+//global error handler
 app.use((err, req, res, next) => {
   logger.error(err.stack);
   res.status(err.statusCode || 500).json({
@@ -70,13 +70,13 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Start server
+//start server
 const PORT = process.env.PORT || 3001;
 const server = app.listen(PORT, () => {
   logger.info(`Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
 });
 
-// Graceful shutdown
+//graceful shutdown
 process.on('SIGTERM', () => {
   logger.info('SIGTERM received. Shutting down gracefully');
   server.close(() => {

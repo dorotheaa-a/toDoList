@@ -12,7 +12,7 @@ router.patch('/:id', noteController.updateNote);
 router.delete('/:id', noteController.deleteNote);
 router.post('/:noteId/project/:projectId', noteController.linkNoteToProject);
 
-// Collaborator routes
+//collaborator routes
 router.post('/:id/collaborators', noteController.addCollaborator);
 router.delete('/:id/collaborators/:userId', noteController.removeCollaborator);
 
