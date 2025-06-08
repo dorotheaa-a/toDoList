@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'authUser',
     'project',
     'reminders',
+    'notifier',
 ]
 
 MIDDLEWARE = [
