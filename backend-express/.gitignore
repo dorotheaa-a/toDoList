@@ -1,7 +1,12 @@
-# dependencies
+#dependencies
 /node_modules
 
 npm-debug.log*
 
-# Environment variables
+#environment variables
 .env*
+.env.prod
+
+#log files
+*.log
+logs/
