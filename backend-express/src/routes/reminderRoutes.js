@@ -3,6 +3,7 @@ const router = express.Router();
 const reminderController = require('../controllers/reminderController');
 const auth = require('../middlewares/auth');
 
+// reminder route
 router.use(auth);
 
 router.post('/', reminderController.createReminder);

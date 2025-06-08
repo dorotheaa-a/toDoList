@@ -13,6 +13,7 @@ exports.createNote = async (req, res) => {
   }
 };
 
+// get user notes
 exports.getUserNotes = async (req, res) => {
   try {
     const notes = await Note.find({

@@ -14,7 +14,7 @@ exports.createReminder = async (req, res) => {
   }
 };
 
-// Set or update reminder time
+// Set or update reminder
 exports.setReminder = async (req, res) => {
   try {
     const reminder = await Reminder.findOneAndUpdate(

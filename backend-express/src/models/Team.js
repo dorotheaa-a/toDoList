@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// teams
 const teamMemberSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   isLeader: { type: Boolean, default: false },

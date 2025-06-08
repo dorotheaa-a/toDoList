@@ -3,6 +3,7 @@ const User = require('../models/User');
 const logger = require('../utils/logger'); 
 const { sendResetEmail } = require('../services/emailService');
 
+// signup
 exports.signup = async (req, res) => {
   try {
     const user = new User(req.body);

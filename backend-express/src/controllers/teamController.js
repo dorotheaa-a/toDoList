@@ -1,6 +1,7 @@
 const Team = require('../models/Team');
 const { create } = require('../models/User');
 
+// for teams
 exports.createTeam = async (req, res) => {
     try {
         const team = new Team({

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// reminder
 const reminderSchema = new mongoose.Schema({
   title: {
     type: String,

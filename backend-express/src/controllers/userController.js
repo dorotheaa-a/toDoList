@@ -2,6 +2,7 @@ const User = require('../models/User');
 const crypto = require('crypto');
 // const { sendResetEmail } = require('../utils/email'); 
 
+// grab prof
 exports.getProfile = async (req, res) => {
   const user = await User.findById(req.user._id).select('-userPassword -tokens');
   res.json(user);

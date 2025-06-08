@@ -3,6 +3,7 @@ const router = express.Router();
 const noteController = require('../controllers/noteController');
 const auth = require('../middlewares/auth');
 
+// note route
 router.use(auth);
 
 router.post('/', noteController.createNote);

@@ -2,6 +2,7 @@ const Project = require('../models/Project');
 const Reminder = require('../models/Reminder');
 const Note = require('../models/Note');
 
+// create project
 exports.createProject = async (req, res) => {
   try {
     const project = new Project({

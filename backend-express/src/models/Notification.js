@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// notif model
 const notificationSchema = new mongoose.Schema({
   task: { type: mongoose.Schema.Types.ObjectId, ref: 'Reminder', required: true },
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
