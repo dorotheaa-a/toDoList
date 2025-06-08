@@ -58,6 +58,8 @@ var/
 
 # Environment variables
 .env
+.env.go_middleware
+
 # If you have a separate file for production secrets not in .env, ignore it too:
 # secret_settings.py
 
