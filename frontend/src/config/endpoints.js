@@ -6,7 +6,7 @@ const LOGIN = "/auth/login";
 const LOGOUT = "/auth/logout";
 const POST_FORGOT_PASSWORD = "/auth/forgot-password";
 const PUT_RESET_PASSWORD = "/auth/reset-password";
-const PROFILE_DATA = "/profile";
+const PROFILE = "/profile";
 
 //get data
 //all note api
@@ -33,7 +33,7 @@ export {
     LOGOUT,
     POST_FORGOT_PASSWORD,
     PUT_RESET_PASSWORD,
-    PROFILE_DATA,
+    PROFILE,
     API_NOTES,
     API_NOTE_DETAIL,
     API_NOTE_COLLABORATORS,

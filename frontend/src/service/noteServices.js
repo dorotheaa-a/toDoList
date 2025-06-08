@@ -5,11 +5,6 @@ import {
     API_NOTES,
     API_NOTE_DETAIL,
     API_NOTE_COLLABORATORS,
-    API_PROJECTS,
-    API_PROJECT_DETAIL,
-    API_PROJECT_COLLABORATORS,
-    API_REMINDERS,
-    API_REMINDER_DETAIL
 } from "../config/endpoints";
 
 //fetch all notes

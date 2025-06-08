@@ -12,6 +12,7 @@ from .serializers import (
     ProjectCreateUpdateSerializer
 )
 from authUser.models import CustomUser
+from notes.serializers import NoteSerializer
 
 # Create your views here.
 
@@ -38,7 +39,6 @@ class ProjectViewSet(viewsets.ModelViewSet):
         serializer.save(owner=self.request.user)
 
     @action(detail=True, methods=['get'])
-
     def notes(self, request, pk=None):
         # grab all note in proj
         project = self.get_object()

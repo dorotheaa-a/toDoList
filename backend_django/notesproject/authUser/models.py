@@ -5,6 +5,7 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from django.contrib.postgres.fields import ArrayField
 import uuid
+from project.models import Project
 from django.core.exceptions import ValidationError
 # from .models import Note, Project
 
@@ -76,55 +77,37 @@ class CustomUser(AbstractUser):
             "created_at": self.created_at.isoformat()
     }
 
-    def share_project(self, project_id, notes_in_project):
-        # share project & notes with user
-        if project_id not in self.shared_projects:
-            self.shared_projects.append(project_id)
-        # Get current shared notes to avoid duplicates
-        current_shared = set(self.shared_notes.all().values_list('id', flat=True))
-        
-        # Find new notes to add
-        notes_to_add = [note_id for note_id in notes_in_project 
-                       if note_id not in current_shared]
-        
-        # Add new notes using proper M2M method
-        if notes_to_add:
-            from notes.models import Note
-            notes = Note.objects.filter(id__in=notes_to_add)
-            self.shared_notes.add(*notes)
-        
-        self.save()
-    
-    def unshare_project(self, project_id, notes_in_project):
-        # rm sharing project & related notes
-        from notes.models import Note
-        if project_id in self.shared_projects:
-            self.shared_projects.remove(project_id)
-            
-            # Find notes that are only in this project
-            from notes.models import Note
-            notes_only_in_this_project = [
-                note_id for note_id in notes_in_project
-                if not Note.objects.filter(
-                    id=note_id,
-                    project_id__in=self.shared_projects
-                ).exists()
-            ]
-            
-            # Remove those notes using proper M2M method
-            if notes_only_in_this_project:
-                notes = Note.objects.filter(id__in=notes_only_in_this_project)
-                self.shared_notes.remove(*notes)
-            
-            self.save()
+    def share_project_with_user(self, project: Project, notes=None):
+        #  add the project to user's shared proj
+        self.shared_projects.add(project)
 
+        # all notes from project to user's shared notes
+        notes_in_project = project.notes.all() # Assumes project has a related_name='notes' from Note model
+        self.shared_notes.add(*notes_in_project)
+        
+
+    def unshare_project(self, project: Project):
+        # rm sharing project & related notes
+        self.shared_projects.remove(project)
+
+        # find notes shud be rm
+        notes_to_remove = []
+        for note in project.notes.all():
+            # Check if this note belongs to any *other* projects user has access
+            is_in_another_shared_project = self.shared_projects.filter(notes=note).exists()
+            if not is_in_another_shared_project:
+                notes_to_remove.append(note)
+
+        # rm notes
+        if notes_to_remove:
+            self.shared_notes.remove(*notes_to_remove)
 
     def get_accessible_projects(self):
         # if get project access, can access all under it
         from project.models import Project
         return Project.objects.filter(
             models.Q(owner=self) |
-            models.Q(collaborators__user=self)
+            models.Q(project_shared=self)
         ).distinct()
 
     def get_accessible_notes(self):
@@ -132,6 +115,6 @@ class CustomUser(AbstractUser):
         from notes.models import Note
         return Note.objects.filter(
             models.Q(owner=self) |
-            models.Q(project__collaborators__user=self) |
+            models.Q(notes_shared=self) |
             models.Q(shared_with__user=self)
         ).distinct()
